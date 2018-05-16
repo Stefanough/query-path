@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 const queryController = require('./QueryController');
+const delQueryController = require('./DelQueryController');
 const completedQueryController = require('./CompletedQueryController');
 
 const PORT = 3000;
@@ -26,7 +27,8 @@ const queryRouter = express.Router();
 
 app.get('/query', queryController.getQuery);
 app.post('/query', queryController.createQuery);
-app.delete('/query', queryController.deleteQuery);
+
+app.post('/delquery', delQueryController.deleteQuery);
 
 app.get('/completedqueries', completedQueryController.getCompletedQuery);
 app.post('/completedqueries', completedQueryController.createCompletedQuery);
