@@ -4,7 +4,7 @@
   "description": "track web queries and stay on task",
   "main": "index.js",
   "scripts": {
-    "start": "node server-psql/server.js",
+    "start": "nodemon main.js",
     "test": "test"
   },
   "repository": {
@@ -18,9 +18,14 @@
   },
   "homepage": "https://github.com/Stefanough/query-path#readme",
   "dependencies": {
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
-    "pg": "^7.4.3",
+    "mongoose": "^5.1.1",
+    "nodemon": "^1.17.4",
+    "pg": "^4.4.3",
     "pg-hstore": "^2.3.2",
+    "pg-promise": "^5.9.7",
     "request": "^2.86.0"
   }
 }
