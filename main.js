@@ -16,10 +16,17 @@ mongoose.connection.once('open', () => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 const queryRouter = express.Router();
 
 app.get('/query', queryController.getQuery);
 app.post('/query', queryController.createQuery);
+app.delete('/query', queryController.deleteQuery);
 
 app.get('/completedqueries', completedQueryController.getCompletedQuery);
 app.post('/completedqueries', completedQueryController.createCompletedQuery);
